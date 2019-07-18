@@ -1,0 +1,34 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<form method="post" style="margin-top: 30px;">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RememberMe">
+            Remember me
+            <input asp-for="RememberMe" />
+        </label>
+    </div>
+
+    <input style="margin-top: 30px;" type="submit" class="btn btn-success btn-block" value="Login" />
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

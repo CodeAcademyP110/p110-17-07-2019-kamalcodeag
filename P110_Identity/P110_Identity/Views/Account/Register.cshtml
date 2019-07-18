@@ -1,0 +1,62 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<form method="post" style="margin-top: 30px;">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Firstname"></label>
+        <input asp-for="Firstname" class="form-control" />
+        <span asp-validation-for="Firstname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Lastname"></label>
+        <input asp-for="Lastname" class="form-control" />
+        <span asp-validation-for="Lastname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <select class="form-control" id="countries" asp-items="@(new SelectList(ViewBag.Countries, "Id", "Name"))">
+        <option value="">Select country</option>
+    </select>
+
+    <select style="margin-top: 30px;" class="form-control" asp-for="CityId">
+        <option value="">Select city</option>
+    </select>
+
+    <input style="margin-top: 30px;" type="submit" class="btn btn-success btn-block" value="Register" />
+</form>
+
+<p>Have an account? <a asp-action="Login" class="btn btn-link">Login</a></p>
+
+@section Scripts{ 
+    <partial name="_ValidationScriptsPartial" />
+}
